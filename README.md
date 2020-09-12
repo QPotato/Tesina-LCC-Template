@@ -1,13 +1,13 @@
 # Template Tesina LCC
 
-Este repositorio es una template con el formato basico de latex para una tesina de LCC. Esta basada en la tesina de Martín, pero pasada a español.
+Este repositorio es una template con el formato basico de LaTeX para una tesina de LCC. Esta basada en la tesina de Martín, pero pasada a español.
 
 ## Instrucciones
 
 - Forkea el repo.
 - Instalate [TeX Live](http://tug.org/texlive/) y [biber](http://biblatex-biber.sourceforge.net/) si aun no lo tenés.
 - Edita con tu editor favorito.
-- Buildea la tesis con `make` (arma la tesis con pdf, dvi, ps). Es medio quilombo el make porque 
+- Buildea la tesis con `make` (arma la tesis con pdf, dvi, ps). Es medio quilombo el make porque tiene que correr varias veces para que biber agarre bien las referencias.
 - Podes limpiar la carpeta con `make clean`
 
 ## Archivos
