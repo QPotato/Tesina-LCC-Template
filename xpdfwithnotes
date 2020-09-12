@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "Vamos a arrancar con las diapos. Poner nombre completo con pdf..."
+read -p "Pasame el pdf de las slides:" sl
+read -p "Parame el pdf de las notas :" nt
+xpdf.real -fullscreen -remote PRESENTATION $sl &
+xpdf.real -fullscreen -remote PRESENTATIONLOC $sl &
+xpdf.real -fullscreen -remote NOTES $nt &
+#xpdf.real -remote PRESENTATIONLOC -exec nextPage 
+while true; do
+    read -n 1 -p "Next or Back?" nb
+    case $nb in
+        #[Nn]* ) xpdf.real -remote NOTES -exec nextPage; xpdf.real -remote PRESENTATION -exec nextPage;;
+        [Bb]* ) xpdf.real -remote NOTES -exec prevPage; xpdf.real -remote PRESENTATION -exec prevPage; xpdf.real -remote PRESENTATIONLOC -exec prevPage;;
+        [Qq]* ) xpdf.real -remote NOTES -quit; xpdf.real -remote PRESENTATIONLOC -quit; xpdf.real -remote PRESENTATION -quit; break;;
+        *     ) xpdf.real -remote NOTES -exec nextPage; xpdf.real -remote PRESENTATION -exec nextPage; xpdf.real -remote PRESENTATIONLOC -exec nextPage;;
+    esac
+done

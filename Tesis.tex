@@ -1,0 +1,36 @@
+\input{settings.mem.tex}
+
+%%%%%%%%%
+%SACAR ESTO PARA QUE LAS HOJAS PARES E IMPARES SEAN DISTINTAS EN MARGEN!
+\setlrmarginsandblock{1.25in}{1.25in}{*}
+\checkandfixthelayout
+%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\frontmatter %% Greek numbering.
+
+\input{titulo.tex}
+% \thetitlepage
+\input{resumen.tex}
+\clearpage
+% \input{thanks.tex}
+% \clearpage
+% \asudedication{ text } % if you want a dedication
+
+\tableofcontents
+
+% \listoffigures % if you have any figures
+% \listoftables
+
+\mainmatter %% Normal numbering.
+\input{Capitulos/Chapter0}
+\input{Capitulos/Chapter1}
+
+\printbibliography
+
+\begin{appendices}
+\input{Capitulos/Appendix1}
+\end{appendices}
+
+\end{document}

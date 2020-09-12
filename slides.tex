@@ -1,0 +1,73 @@
+\documentclass[pdf]{beamer}
+\usetheme{Copenhagen}
+\mode<presentation>{}
+
+\usepackage{pgfpages}
+%\setbeameroption{show notes on second screen=right}
+%\setbeameroption{show only notes}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{paralist}
+\usepackage{todonotes}
+\usepackage{stmaryrd}
+\usepackage{graphicx,xcolor}
+\usepackage{subcaption}
+\graphicspath{{Imgs/}}
+
+\usepackage{array}
+
+\title{Titulo de tu Tesina}
+
+\author[]{Tu Nombre}
+
+\institute[]{
+    % \inst{1}
+    % Cifasis
+    % \and
+    \inst{1}
+    Departamento de Ciencias de la Computación\\
+    Facultad de Ciencias Exactas, Ingenieria y Agrimensura}
+
+\subject{Tesina}
+
+% PP Haskell
+\usepackage{listings}
+\usepackage{color}
+%\lstset{language=Haskell}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+    \note{%
+    \begin{itemize}
+    \item asd
+    \end{itemize}
+    }
+\end{frame}
+
+\begin{frame}
+\frametitle{Contenido}
+\tableofcontents
+\note{%
+    Repasar el hilo de la presentación.
+
+    La presentación está dividia en 4 partes:
+    \begin{itemize}
+    \item Capítulo 1: haremos un repaso historico de la evolución de los 
+    microprocesadores.
+    \item Capítulo 2: introducimos el paralelismo a Haskell.
+    \item Capítulo 3: hablaremos no muy detenidamente sobre la implementación
+    del trabajo.
+    \item Capítulo 4: conclusiones y trabajo futuro.
+    \end{itemize}
+}
+\end{frame}
+
+\input{Slides/slides.chapter1.tex}
+\input{Slides/slides.chapter2.tex}
+\input{Slides/slides.chapter3.tex}
+\input{Slides/slides.chapter5.tex}
+
+\end{document}
