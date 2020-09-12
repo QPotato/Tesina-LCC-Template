@@ -38,3 +38,8 @@ y luego importara los diferentes capítulos.
 ## Contribuciones
 
 Soy horrible con LaTeX. Se aceptan PRs para mejorar esta template.
+
+## TODO
+
+- Agregar ejemplos de figuras
+- Corregir warnings de chktex
