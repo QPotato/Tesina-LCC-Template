@@ -1,5 +1,4 @@
-#
-#   Makefile
+# Makefile
 #
 # Los bucles while son porque biber quiere que corras pdflatex -> biber -> pdflatex
 # para agarrar bien las referencias.
@@ -9,25 +8,19 @@
 MAINTEX = Tesis
 SLIDES = slides
 CARTA = carta
-CP = cp
-GHC = ghc
 RM = rm -f
 LATEX = latex
 PDFLATEX = pdflatex
-LHS = lhs2TeX
 BIB = biber
-LHSPAR = --poly
-LHSFILES = $(MAINTEX)
 EXT = *.nav *.snm *.ptb *.blg *.log *.aux *.lof *.lot *.bit *.idx *.glo *.bbl *.ilg *.toc *.out *.ind *~ *.ml* *.mt* *.th* *.bmt *.xyc *.bcf *.run.xml *.dot *.ptc
-PAG =
-NUM =
+LINT = chktex
 
 default: pdflatex
 
-carta:
+carta: clean lint-carta
 	$(PDFLATEX) $(CARTA).tex
 
-slides: clean
+slides: clean lint-slides
 	$(PDFLATEX) $(SLIDES).tex
 	@latex_count=100 ; \
 	while egrep -s 'Rerun (LaTeX|to get)' $(SLIDES).log && [ $$latex_count -gt 0 ] ;\
@@ -38,7 +31,7 @@ slides: clean
 	      latex_count=`expr $$latex_count - 1` ;\
 	    done
 
-all: dvi ps pdf slides carta
+all: dvi ps lint-all pdflatex slides carta
 
 dvi: clean
 	$(LATEX) $(MAINTEX).tex
@@ -54,7 +47,7 @@ dvi: clean
 ps: dvi
 	dvips -f $(MAINTEX).dvi > $(MAINTEX).ps
 
-pdflatex: clean
+pdflatex: clean lint
 	$(PDFLATEX) $(MAINTEX).tex
 	$(BIB) $(MAINTEX)
 	@latex_count=100 ; \
@@ -66,9 +59,19 @@ pdflatex: clean
 	      latex_count=`expr $$latex_count - 1` ;\
 	    done
 
+lint: 
+	$(LINT) Tesis.tex
+
+lint-carta:
+	$(LINT) carta.tex
+
+lint-slides:
+	$(LINT) slides.tex
+
+lint-all: lint lint-carta lint-slides
+
 clean:
 	$(RM) $(EXT)
-
 
 clean-all: clean
 	$(RM) *.dvi
@@ -93,4 +96,3 @@ help:
 	@echo "    make clean-all"
 	@echo "    make tar"
 	@echo "    make slides"
-
