@@ -21,7 +21,7 @@ y luego importara los diferentes capítulos.
 
 - resumen.tex y gracias.tex : resumen y agradecimientos.
 
-- slides.tex: las slides para la defensa de la tesina
+- slides.tex: Archivo central de las slides para la defensa de la tesina. Las slides están separadas en Slides/
 
 - citas.bib: citas bibliografica con detalles y label para referenciarlas en al tesina
 
@@ -31,7 +31,9 @@ y luego importara los diferentes capítulos.
 
 - Capitulos/: archivos separados para cada capitulo
 
-- Imgs/: imagenes
+- Imgs/: Imagenes
+
+- Slides/: archivos referentes a las Slides
 
 - Tablas: tablas, obviamente.
 
@@ -42,4 +44,3 @@ Soy horrible con LaTeX. Se aceptan PRs para mejorar esta template.
 ## TODO
 
 - Agregar ejemplos de figuras
-- Corregir warnings de chktex

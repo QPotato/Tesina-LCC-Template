@@ -1,0 +1,10 @@
+QuoteStyle = Traditional
+
+CmdLine { -n26 -n44 }
+
+VerbEnvir
+{
+    verbatim comment listing verbatimtab rawhtml errexam picture texdraw
+    filecontents pgfpicture tikzpicture minted lstlisting texttt
+    solution
+}
