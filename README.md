@@ -24,7 +24,7 @@ Este repositorio es una template con el formato basico de LaTeX para una tesina 
 
 ## Instrucciones de uso
 
-- `make init`: Prepara pre-commit (solo la primera vez)
+- `make pre-commit`: Prepara pre-commit (solo la primera vez)
 - `make`: **Básicamente corrés esto y anda solo**. Buildea TODO la tesis (arma el .pdf, .dvi, .ps). Es medio quilombo el make porque tiene que correr varias veces para que biber agarre bien las referencias.
 
 ### Otros:

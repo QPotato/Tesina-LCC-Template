@@ -64,10 +64,12 @@ EXT = *.bak* *.nav *.snm *.ptb *.blg *.log *.lof *.lot *.bit *.idx *.glo *.bbl *
 LINT = chktex
 FORMAT = latexindent -w -s -m -l=.localSettings.yaml
 
-init: 
-	pre-commit install
+.PHONY: pdflatex clean carta slides lint-all format-all format lint 
 
 default: pdflatex
+
+pre-commit: 
+	pre-commit install
 
 carta: clean format-carta lint-carta
 	$(PDFLATEX) $(CARTA).tex
