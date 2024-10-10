@@ -5,15 +5,18 @@
 #
 # Por el mismo motivo necesitamos hacer clean antes de buildear.
 
+# Nombre de tus archivos de Tesis - Slides - Carta
 MAINTEX = Tesis
 SLIDES = slides
 CARTA = carta
+
 RM = rm -f
 LATEX = latex
 PDFLATEX = pdflatex
 BIB = biber
-EXT = *.nav *.snm *.ptb *.blg *.log *.aux *.lof *.lot *.bit *.idx *.glo *.bbl *.ilg *.toc *.out *.ind *~ *.ml* *.mt* *.th* *.bmt *.xyc *.bcf *.run.xml *.dot *.ptc
+EXT = *.bak0 *.nav *.snm *.ptb *.blg *.log *.lof *.lot *.bit *.idx *.glo *.bbl *.ilg *.toc *.out *.ind *~ *.ml* *.mt* *.th* *.bmt *.xyc *.bcf *.run.xml *.dot *.ptc
 LINT = chktex
+FORMAT = latexindent -w -s -m -l=./.localSettings.yaml
 
 default: pdflatex
 
@@ -52,25 +55,43 @@ pdflatex: clean lint
 	$(BIB) $(MAINTEX)
 	@latex_count=100 ; \
 	while egrep -s 'rerun (LaTeX|to get cross-references right)' $(MAINTEX).log && [ $$latex_count -gt 0 ] ;\
-	    do \
-	      echo "Rerunning latex...." ;\
-	      $(PDFLATEX) $(MAINTEX).tex ;\
-		  sleep 0.5;\
-	      latex_count=`expr $$latex_count - 1` ;\
-	    done
+		do \
+			echo "Rerunning latex...." ;\
+			$(PDFLATEX) $(MAINTEX).tex ;\
+			sleep 0.5;\
+				latex_count=`expr $$latex_count - 1` ;\
+			done
 
 lint: 
-	$(LINT) Tesis.tex
+	$(LINT) $(MAINTEX)
 
 lint-carta:
-	$(LINT) carta.tex
+	$(LINT) $(CARTA)
 
 lint-slides:
-	$(LINT) slides.tex
+	$(LINT) $(SLIDES)
 
 lint-all: lint lint-carta lint-slides
 
-clean:
+format: clean-format-backup
+	for filename in ./**/*.tex; \
+	do \
+		$(FORMAT) "${filename}"; \
+	done
+
+format-slides: clean-format-backup
+	for filename in ./Capitulos/*.tex
+	do
+		$(FORMAT) "${filename}"
+	done
+
+	$(FORMAT) Capitulos/*.tex
+
+clean-format-backup:
+	rm -f Capitulos/*.bak0;
+	rm -f Slides/*.bak0
+
+clean: clean-format
 	$(RM) $(EXT)
 
 clean-all: clean
@@ -81,10 +102,10 @@ clean-all: clean
 tar: clean
 	alias NOMBRE="basename `pwd`";\
 	tar -cvjf `NOMBRE`.tar.bz2\
-	        --exclude "*.bz2"\
-	        --exclude "*.dvi"\
+					--exclude "*.bz2"\
+					--exclude "*.dvi"\
 		--exclude "*.tar.bz2"\
-	        ../`NOMBRE`/ ;\
+					../`NOMBRE`/ ;\
 	unalias NOMBRE
 
 help:
@@ -96,3 +117,5 @@ help:
 	@echo "    make clean-all"
 	@echo "    make tar"
 	@echo "    make slides"
+	@echo "    make lint"
+	@echo "    make format"

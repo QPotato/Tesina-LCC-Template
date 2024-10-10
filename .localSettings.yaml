@@ -1,0 +1,11 @@
+
+defaultIndent: "\t"
+
+lookForAlignDelims:
+tabbing: 1
+
+modifyLineBreaks:
+    textWrapOptions:
+        columns: 80
+
+onlyOneBackup: 1
