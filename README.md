@@ -14,17 +14,24 @@ Este repositorio es una template con el formato basico de LaTeX para una tesina 
 
 - Instalar [Chktex](https://ctan.org/pkg/chktex?lang=en) para correr el lint
 - Instalar [Latex Indent](https://github.com/cmhughes/latexindent.pl) para correr el autoformatter
+- Instalar Pre-commit - `sudo apt-get install pre-commit` para tener el pre-commit
 
 ### El camino del mal: 
 - `sudo apt-get install texlive-full` y ya tenés todo (es pesado, pero Seba recomienda el camino del mal para no sufrir)
 
+#### Opcional:
+- `sudo apt-get install pre-commit` - Pre-commit.
+
 ## Instrucciones de uso
 
-- `make`: Buildea TODO la tesis (arma el .pdf, .dvi, .ps). Es medio quilombo el make porque tiene que correr varias veces para que biber agarre bien las referencias.
+- `make init`: Prepara pre-commit (solo la primera vez)
+- `make`: **Básicamente corrés esto y anda solo**. Buildea TODO la tesis (arma el .pdf, .dvi, .ps). Es medio quilombo el make porque tiene que correr varias veces para que biber agarre bien las referencias.
+
+### Otros:
 - `make clean`: Limpia la carpeta
 - `make carta` / `make slides`: Crean el .pdf de la carta / slides.
 - `make lint` / `make lint-carta` / `make lint-slides`: Corre el lint en la Tesina / Carta / Slides
-- `make format`: Formatea tus archivos
+- `make format` / `make format-carta` / `make format-slides`: Formatea tus archivos
 
 ## Organización de archivos
 
@@ -56,6 +63,27 @@ Este repositorio es una template con el formato basico de LaTeX para una tesina 
 
 - **Tablas** : tablas, obviamente.
 
+## Modificar Lint - Formatter - Pre-commit: 
+
+### Lint 
+
+Para lint este repositorio usa `Chktex`.
+Para modificar las reglas, referirse a `.chktexrc`.
+Para cancelar el lint, modificar el Makefile (instrucciones adentro)
+
+### Formatter
+
+Como Formatter, este repo usa `latexindent`. 
+Para modificar las reglas de formateo, ver `.localSettings.yaml`
+Para cancelar el formatter, modificar el Makefile (instrucciones adentro)
+
+### Pre-commit hooks
+
+El pre-commit hook corre el Formatter y el Lint. 
+Es equivalente a lo que corre en el Lint en Github-actions. 
+Para evitar los pre-commit hooks, remover `.pre-commit-config.yaml`
+
 ## Contribuciones
 
-Se aceptan PRs para mejorar esta template.
+- [@ZimmSebas](https://github.com/ZimmSebas)
+- Vos, próximamente ;)
