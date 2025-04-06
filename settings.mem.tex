@@ -18,8 +18,8 @@
 \cftpagenumberson{subsection}
 
 \usepackage[utf8]{inputenc}
-%\usepackage[spanish]{babel}
 \usepackage[spanish]{babel}
+%\usepackage[english]{babel}
 \usepackage{paralist}
 \usepackage[hidelinks]{hyperref}
 \usepackage{array,multirow}
@@ -30,8 +30,12 @@
 % \usepackage[toc,page]{appendix}
 \usepackage{csquotes}
 
-\usepackage[style=numeric, maxbibnames=10, giveninits=true, uniquename=false, backend=biber, sortcites]{biblatex}
-\bibliography{citas}
+% \usepackage{minted}
+
+\usepackage[style=numeric, maxbibnames=10, giveninits=true, uniquename=false, backend=biber, sortcites=true, sorting=none]{biblatex}
+\DeclareLanguageMapping{english}{english-apa}
+\addbibresource{citas.bib}
+
 \usepackage{todonotes}
 \usepackage{stmaryrd}
 \usepackage{graphicx,xcolor}
@@ -39,6 +43,19 @@
 \graphicspath{{Imgs/}{Figures/Plots/multiple/}{Figures/Plots/single/}{Figures/}}
 \usepackage{amssymb} %simbolos math
 \usepackage{amsmath}
+\usepackage{pifont} % simbolos extras
+\usepackage{mathtools}
+
+%\renewcommand{\refname}{Referencias} % Cambiar nombre a Referencias
+%\bibliographystyle{ieeetr} % Ordenar referencias por orden de aparición
+
+\definecolor{coolgreen}{RGB}{64, 168, 80}
+\definecolor{coolred}{RGB}{192, 57, 43} 
+\definecolor{coolblue}{RGB}{52, 152, 219}   % Muted blue
+\definecolor{coolorange}{RGB}{230, 126, 34} % Soft orange
+\definecolor{coolpurple}{RGB}{155, 89, 182} % Calm purple
+\newcommand{\xmark}{{\color{coolred}{\ding{55}}}}
+\newcommand{\cmark}{{\color{coolgreen}{\ding{51}}}}
 
 %lemmas
 \usepackage{amsthm}
@@ -47,6 +64,9 @@
 \newtheorem{lemma}{Lema}[theorem]
 
 %algorithms
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
 \newcommand\mdoubleplus{\ensuremath{\mathbin{+\mkern-10mu+}}}
 \newcommand{\zn}[1]{{\protect\color{red}\sf\small #1}}
 \newcommand{\za}{\leftarrow}
@@ -185,3 +205,10 @@
 % %\let\ftype@figure\ftype@program% give the floats the same precedence
 % %}
 % \makeatother
+
+\newcommand{\comentario}[1]{\todo[color=green!50]{C.: #1}}
+\newcommand{\seba}[1]{\todo[color=red!50]{S.: #1}}
+
+\newenvironment{dedication}
+    {\vspace{6ex}\begin{quotation}\begin{center}\begin{em}}
+    {\par\end{em}\end{center}\end{quotation}}

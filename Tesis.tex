@@ -10,27 +10,37 @@
 
 \frontmatter %% Greek numbering.
 
-\input{titulo.tex}
+\input{Capitulos/Titulo.tex}
 % \thetitlepage
-\input{resumen.tex}
+\input{Capitulos/Quote.tex}
 \clearpage
-% \input{thanks.tex}
-% \clearpage
-% \asudedication{ text } % if you want a dedication
+\input{Capitulos/Gracias.tex}
+\clearpage
+\input{Capitulos/Resumen.tex}
+\clearpage
 
 \tableofcontents
+\newpage
+% Esto es para agregar una lista de Algoritmos: 
+%\addcontentsline{toc}{chapter}{Lista de Algoritmos} 
+%\listofalgorithms{}
 
 % \listoffigures % if you have any figures
-% \listoftables
+% \listoftables % if you have any tables.
 
-\mainmatter{} %% Normal numbering.
-\input{Capitulos/Chapter0}
-\input{Capitulos/Chapter1}
+\mainmatter{} %% Normal numbering. 
+\input{Capitulos/chapter0-example.tex} % Capitulo ejemplo
 
-\printbibliography{}
+\input{Capitulos/chapter1-introduction.tex} % La elección de capítulos es sugerencia, para nada obligatoria.
+\input{Capitulos/chapter2-state-of-the-art.tex}
+\input{Capitulos/chapter3-proposed-approach.tex}
+\input{Capitulos/chapter4-results.tex}
+\input{Capitulos/chapter5-conclusions.tex}
+
+\printbibliography[title={Referencias}]{}
 
 \begin{appendices}
-\input{Capitulos/Appendix1}
+	\input{Capitulos/Appendix1}
 \end{appendices}
 
 \end{document}

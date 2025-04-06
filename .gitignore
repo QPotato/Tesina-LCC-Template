@@ -14,6 +14,8 @@
 *.toc
 *.out
 *.ind
+*.ps
+*.dvi
 *~
 *.ml*
 *.mt*
@@ -24,3 +26,11 @@
 *.run.xml
 *.dot
 *.ptc
+.vscode
+*.bak*
+*.fls
+*.fdb_latexmk
+*.gz
+*.loa
+.vscode
+report.synctex(busy)

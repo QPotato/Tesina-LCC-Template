@@ -1,0 +1,107 @@
+\chapter{Titulo del capitulo}
+~\label{cap:example}
+
+En este capitulo hablaremos de la sección~\ref{cap:intro:sec:contributions}
+para demostrar teorema~\ref{teorema1}.~\comentario{Acá dejo un comentario}
+
+\section{Titulo de la sección}
+~\label{cap:example:sec:title}
+
+Ejemplo de Sección~\seba{Ejemplo de comentario de otra persona}
+
+\section{Teoremas}
+~\label{cap:example:sec:theorem}
+
+A continuación, plantearemos el teorema 1~\ref{teorema1}.
+
+\subsection{Teorema 1}
+~\label{cap:example:sec:theorem:subsec:1st-theorem}
+
+\begin{lemma}~\label{lema1}
+	Enunciado del lema.
+\end{lemma}
+
+\begin{proof}
+	Prueba del lema.
+\end{proof}
+
+\begin{theorem}~\label{teorema1}
+	Enunciado del teorema.
+\end{theorem}
+
+\begin{proof}
+	Prueba del teorema.
+\end{proof}
+
+\section{Figuras y tablas}
+~\label{cap:example:sec:fig-and-tables}
+
+Ejemplo de Tabla~\ref{table:example}
+
+\begin{center}~\label{table:example}
+	\begin{tabular}{||c c c c||} 
+	 \hline
+	 Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
+	 \hline\hline
+	 1 & 6 & 87837 & 787 \\ 
+	 \hline
+	 2 & 7 & 78 & 5415 \\
+	 \hline
+	 3 & 545 & 778 & 7507 \\
+	 \hline
+	 4 & 545 & 18744 & 7560 \\
+	 \hline
+	 5 & 88 & 788 & 6344 \\ [1ex] 
+	 \hline
+	\end{tabular}
+\end{center}
+
+Ejemplo imagen~\ref{figure:functional}:
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.4\textwidth]{Imgs/FunctionalWay.jpg}
+	\caption{\label{figure:functional} La posta}
+\end{figure}
+
+\newpage{}
+
+\section{Algoritmos}
+~\label{cap:example:sec:algorithms}
+
+\begin{algorithm}
+	\caption{Programin}\label{alg:1}
+	\begin{algorithmic}[1]
+		\Procedure{programa}{$a, n$}
+		\State{$a \gets 0$}
+		\For{$i = 0\ to\ n$}
+		\State{$a\ |=\ n\ \oplus \ a$}
+		\EndFor{}
+		\State{\Return{$result$}}
+		\EndProcedure{}
+	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+	\caption{Unbalanced Program}\label{alg:2}
+	\begin{algorithmic}[1]
+		\Procedure{Unbalanced\_program}{$public_1, public_2, public_3, secret_1$}
+		\State{$public_1 \mathrel{+}= public_2$}
+		\If{$public_1 > 20$}\Comment{If irrelevante, pues es público}
+		\State{$public_1 \mathrel{+}= public_2 + public_3$}
+		\Else{}
+		\State{$public_1 \mathrel{+}= public_2$}
+		\EndIf{}
+		\If{$public_2 > secret_1$}\Comment{If con dependencia de secretos}
+		\State{$public_1 \mathrel{+}= public_2$}
+		\State{$public_1 \mathrel{+}= public_3$}
+		\Else{}
+		\State{$public_1 \mathrel{+}= public_2$}
+		\State{$public_1 \mathrel{*}= public_3$}
+		\EndIf{}
+		\State{\Return{$public_1$}}
+		\EndProcedure{}
+	\end{algorithmic}
+\end{algorithm}
+
+Comparamos Algoritmo~\ref{alg:1} y Algoritmo~\ref{alg:2}.

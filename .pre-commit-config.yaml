@@ -1,0 +1,15 @@
+repos:
+-   repo: local
+    hooks:
+    -   id: formatter
+        name: Running formatter
+        entry: make format-all
+        language: system
+    -   id: lint
+        name: Running lint
+        entry: make lint-all
+        language: system
+    -   id: clean
+        name: Cleaning back-ups
+        entry: make clean
+        language: system
